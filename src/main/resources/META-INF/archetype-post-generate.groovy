@@ -19,11 +19,11 @@ if(isWindows && isUnix) {
 }
 else if(isWindows) {
     System.out.println("Executing 'mvn package -DskipTests=true' in directory "+request.getArtifactId())
-    mavenPackageProcess = new ProcessBuilder("mvn.cmd","package","-DskipTests=true").directory(new File(request.getArtifactId())).start()
+    mavenPackageProcess = new ProcessBuilder("mvn.cmd","package","-DskipTests=true","-P e2e-build unix-local-build").directory(new File(request.getArtifactId())).start()
 }
 else if(isUnix) {
     System.out.println("Executing 'mvn package -DskipTests=true' in directory "+request.getArtifactId())
-    mavenPackageProcess = new ProcessBuilder("mvn","package","-DskipTests=true").directory(new File(request.getArtifactId())).start()
+    mavenPackageProcess = new ProcessBuilder("mvn","package","-DskipTests=true","-P e2e-build windows-local-build").directory(new File(request.getArtifactId())).start()
 }
 else {
     System.out.println("NEITHER windows NOR UNIX profiles? Check your config...")
@@ -31,6 +31,7 @@ else {
 }
 mavenPackageProcess.waitForProcessOutput(System.out, System.err)
 
+/*
 System.out.println("Executing 'mvn clean' in directory "+request.getArtifactId())
 def mavenCleanProcess
 if(isWindows && isUnix) {
@@ -50,6 +51,7 @@ else {
     System.exit(1)
 }
 mavenCleanProcess.waitForProcessOutput(System.out, System.err)
+*/
 
 System.out.println("Initializing git")
 def initProcess = new ProcessBuilder("git","init").directory(new File(request.getArtifactId())).start()
