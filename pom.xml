@@ -9,6 +9,12 @@
 
   <name>quarkus-ui-archetype</name>
 
+  <properties>
+    <archetype.test.skip>true</archetype.test.skip>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
   <build>
     <extensions>
       <extension>
