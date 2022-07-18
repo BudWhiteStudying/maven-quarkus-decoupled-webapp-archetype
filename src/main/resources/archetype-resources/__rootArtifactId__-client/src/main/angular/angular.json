@@ -73,14 +73,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "${rootArtifactId}-client:build"
+            "browserTarget": "${rootArtifactId}:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "${rootArtifactId}-client:build:production"
+              "browserTarget": "${rootArtifactId}:build:production"
             },
             "development": {
-              "browserTarget": "${rootArtifactId}-client:build:development",
+              "browserTarget": "${rootArtifactId}:build:development",
               "proxyConfig": "src/proxy.conf.json"
             }
           }
